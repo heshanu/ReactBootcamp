@@ -1,14 +1,36 @@
+import React, { Component } from "react";
+import "./App.css";
 
-import './App.css';
+class App extends Component {
+  state = { displayBio: false };
+  // constructor() {
+  //   super();
+  //   this.state = { displayBio: false };
+  //   this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+  // }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello React</h1>
-      </header>
-    </div>
-  );
+  toggleDisplayBio =()=> {
+    this.setState({ displayBio: !this.state.displayBio });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>React</p>
+
+        {this.state.displayBio ? (
+          <div>
+            <p>FUCK u</p>
+            <button onClick={this.toggleDisplayBio}>Read More</button>
+          </div>
+        ) : (
+          <div>
+            <button onClick={this.toggleDisplayBio}>Read More</button>
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
