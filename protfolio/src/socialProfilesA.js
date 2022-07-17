@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SocailProfiles from "./data/socailProfile";
-
 class SocialProfile extends Component {
   render() {
     const { name, media } = this.props.profile;
@@ -12,7 +11,7 @@ class SocialProfile extends Component {
     return (
       <span>
         <a>
-        <img src={media} alt="profile" style={socialStyle} />
+        <img src={media} alt={'Profile'} style={socialStyle} />
       </a>
       </span>
     );
