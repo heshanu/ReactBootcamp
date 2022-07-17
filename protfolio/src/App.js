@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Projects from "../src/projects";
+import SocialProfilesA from "../src/socialProfilesA";
 
 class App extends Component {
   state = { displayBio: false };
@@ -9,9 +11,9 @@ class App extends Component {
   //   this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
   // }
 
-  toggleDisplayBio =()=> {
+  toggleDisplayBio = () => {
     this.setState({ displayBio: !this.state.displayBio });
-  }
+  };
 
   render() {
     return (
@@ -28,6 +30,11 @@ class App extends Component {
             <button onClick={this.toggleDisplayBio}>Read More</button>
           </div>
         )}
+
+        <hr />
+        <Projects />
+        <hr />
+        <SocialProfilesA/>
       </div>
     );
   }
