@@ -16,7 +16,7 @@ class Project extends Component {
     };
 
     return (
-      <div style={projectStyle} class="l">
+      <div style={projectStyle} className="l">
           <br />
           {title}
           <br />

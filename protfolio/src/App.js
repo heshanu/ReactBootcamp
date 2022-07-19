@@ -3,7 +3,8 @@ import "./App.css";
 import Projects from "../src/projects";
 import SocialProfilesA from "../src/socialProfilesA";
 import Profile from "./assets/profile.png";
-
+import Title from "./Title";
+import Jokes from "./Jokes";
 class App extends Component {
   state = { displayBio: false };
   // constructor() {
@@ -17,14 +18,19 @@ class App extends Component {
   };
 
   render() {
-    var imgS={
-        width:200,height:200,borderRadius:100
-    }
+    var imgS = {
+      width: 200,
+      height: 200,
+      borderRadius: 100,
+    };
     return (
       <div>
-        <img alt="" src={Profile} style={imgS}/>
+        <img alt="" src={Profile} style={imgS} />
         <p>React</p>
 
+        <p>My name is Heshan</p>
+        <Title />
+        <br />
         {this.state.displayBio ? (
           <div>
             <p>FUCK u</p>
@@ -32,7 +38,7 @@ class App extends Component {
           </div>
         ) : (
           <div>
-            <button onClick={this.toggleDisplayBio}>Read More</button>
+            <button onClick={this.toggleDisplayBio}>Read Less</button>
           </div>
         )}
 
@@ -40,6 +46,8 @@ class App extends Component {
         <Projects />
         <hr />
         <SocialProfilesA />
+        <hr/>
+        <Jokes/>
       </div>
     );
   }
