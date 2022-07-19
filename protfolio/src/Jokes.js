@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 
+const Joke = ({joke}) => {
+  const { gender, hair_color } = joke;
+  return (
+    <p>
+      <em>{gender}</em>--{hair_color}
+    </p>
+  );
+};
 class Jokes extends Component {
   constructor(props) {
     super(props);
@@ -28,22 +36,15 @@ class Jokes extends Component {
     return (
       <div>
         <h2>Highlighted Jokes</h2>
-        <p>
-          <em>{gender}</em>--{hair_color}
-        </p>
+        <Joke joke={this.state.joke}/>
         <hr />
 
         <button onClick={this.onJokes}>more jokes</button>
 
-        {
-        this.state.jokes.map((joke) => {
+        {this.state.jokes.map((joke) => {
           const { id, gender, hair_color } = joke;
-          return (
-            <p key={id}>
-              {gender}
-              {hair_color}
-            </p>
-          );
+          return <Joke key={joke.id} joke={joke}/>
+       
         })}
       </div>
     );
