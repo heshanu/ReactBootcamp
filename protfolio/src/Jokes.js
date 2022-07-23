@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 const Joke = ({joke}) => {
-  const { gender, hair_color } = joke;
+  const { userId,title } = joke;
+  var JokeStyle={margin:20};
   return (
-    <p>
-      <em>{gender}</em>--{hair_color}
+    <p style={JokeStyle}>
+      <em>{userId}</em>--{title}
     </p>
   );
 };
@@ -17,35 +18,34 @@ class Jokes extends Component {
 
   componentDidMount() {
     //get api
-    fetch("https://swapi.dev/api/people/1")
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
       .then((response) => response.json())
       /*.then(response=>console.log(response))*/
       .then((json) => this.setState({ joke: json }));
   }
 
   onJokes = () => {
-    fetch("https://swapi.dev/api/people")
+    fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => this.setState({ jokes: json }));
   };
 
   render() {
     //json response setstate
-    const { gender, hair_color } = this.state.joke;
+   // const { userId, title } = this.state.joke;
+    //const { userId, title } = this.state.joke1;
 
     return (
       <div>
         <h2>Highlighted Jokes</h2>
         <Joke joke={this.state.joke}/>
         <hr />
-
         <button onClick={this.onJokes}>more jokes</button>
-
-        {this.state.jokes.map((joke) => {
-          const { id, gender, hair_color } = joke;
+        {
+        this.state.jokes.map(joke=> {
           return <Joke key={joke.id} joke={joke}/>
-       
-        })}
+        })
+        }
       </div>
     );
   }
