@@ -4,7 +4,7 @@ import Projects from "../src/projects";
 import SocialProfilesA from "../src/socialProfilesA";
 import Profile from "./assets/profile.png";
 import Title from "./Title";
-import Jokes from "./Jokes";
+
 class App extends Component {
   state = { displayBio: false };
   // constructor() {
@@ -46,8 +46,6 @@ class App extends Component {
         <Projects />
         <hr />
         <SocialProfilesA />
-        <hr/>
-        <Jokes/>
       </div>
     );
   }

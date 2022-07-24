@@ -1,22 +1,25 @@
-import React from 'react';
+import React from "react";
 //import ReactDOM from 'react-dom/client';
-import ReactDOM from 'react-dom/client';
-import {Router,BrowserRouter,Route} from 'react-router-dom';
-import './index.css';
-import App from './App';
-import Jokes from './Jokes';
-import { createBrowserHistory } from 'history';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import ReactDOM from "react-dom/client";
 
-const history=createBrowserHistory();
+import { Router, BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import Jokes from "./Jokes";
+import { createBrowserHistory } from "history";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-<Router history={history}>
+  <div>
     <BrowserRouter>
-        <Route path='/' element={App}></Route>
-        <Route path='/jokes' element={Jokes}></Route>
+      <Routes history={createBrowserHistory()}>
+        <Route exact path="/" element={<App />} />
+        <Route exact path="/jokes" element={<Jokes />} />
+      </Routes>
     </BrowserRouter>
-</Router>);
+  </div>
+);
+
 /*promises in async
 
 new Promise((resolve, reject) => {
@@ -34,5 +37,4 @@ new Promise((resolve, reject) => {
 })
 
 .catch((error)=>console.log('error',error))
-
 */
