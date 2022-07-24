@@ -5,11 +5,13 @@ import {Router,BrowserRouter,Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Jokes from './Jokes';
-
+import { createBrowserHistory } from 'history';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const history=createBrowserHistory();
+
 root.render(
-<Router>
+<Router history={history}>
     <BrowserRouter>
         <Route path='/' element={App}></Route>
         <Route path='/jokes' element={Jokes}></Route>
