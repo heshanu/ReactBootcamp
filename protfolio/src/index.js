@@ -7,14 +7,32 @@ import "./index.css";
 import App from "./App";
 import Jokes from "./Jokes";
 import { createBrowserHistory } from "history";
+import Header from "./Header";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <div>
     <BrowserRouter>
       <Routes history={createBrowserHistory()}>
-        <Route exact path="/" element={<App />} />
-        <Route exact path="/jokes" element={<Jokes />} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Header Component={App}>
+              <App />
+            </Header>
+          )}
+        />
+        <Route
+          exact
+          path="/jokes"
+          element={<Jokes />}
+          render={() => (
+            <Header>
+              <Jokes />
+            </Header>
+          )}
+        />
       </Routes>
     </BrowserRouter>
   </div>
