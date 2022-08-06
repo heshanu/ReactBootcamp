@@ -16,7 +16,7 @@ code {
 }
 
 @font-face {
-  src: url();
+  src: url('./assets/profile.png');
   font-family: "Roboto Condensed", sans-serif;
 }
 

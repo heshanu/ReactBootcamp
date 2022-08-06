@@ -1,32 +1,34 @@
 import React from "react";
-//import ReactDOM from 'react-dom/client';
 import ReactDOM from "react-dom/client";
 
-import { Router, BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Jokes from "./Jokes";
 import { createBrowserHistory } from "history";
 import Header from "./Header";
+
+const HomePage = (props) => {
+  return (
+    <>
+      <Header>
+        <App />
+      </Header>
+    </>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <div>
     <BrowserRouter>
       <Routes history={createBrowserHistory()}>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <Header Component={App}>
-              <App />
-            </Header>
-          )}
-        />
+        <Route exact path="/" render={<HomePage />} />
+
         <Route
           exact
           path="/jokes"
-          element={<Jokes />}
           render={() => (
             <Header>
               <Jokes />
